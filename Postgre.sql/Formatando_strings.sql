@@ -1,0 +1,50 @@
+/*FORMATANDO STRINGS*/
+
+/*LISTA*/
+SELECT DEPARTAMENTO FROM FUNCIONARIOS;
+
+/*LISTANDO SEM DUPLICIDADES*/
+SELECT DISTINCT DEPARTAMENTO FROM FUNCIONARIOS;
+
+
+/*TRAZENDO TUDO EM LETRAS MAIÚSCULAS OU MINÚSCULAS*/
+
+SELECT DISTINCT UPPER(DEPARTAMENTO) FROM FUNCIONARIOS;
+
+SELECT DISTINCT LOWER(DEPARTAMENTO) FROM FUNCIONARIOS;
+
+
+/*JUNTANDO DUAS COLUNAS NA MESMA LISTA COM ||*/
+
+SELECT DISTINCT UPPER(CARGO ||' - ' || DEPARTAMENTO) AS "CARGO COMPLETO" FROM FUNCIONARIOS;
+
+
+/*CONTANDO CARACTERES*/
+
+SELECT LENGTH('    UNIDADES    ');
+
+/*REMOVENDO ESPAÇOS*/
+
+SELECT TRIM('   UNIDADES   ');
+SELECT LENGTH(TRIM('   UNIDADES   '));
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*DESAFIO: CRIAR UMA COLUNA AO LADO DA COLUNA CARGO QUE DIGA SE A PESSOA É ASSISTENTE OU NÃO*/
+
+SELECT DISTINCT CARGO
+FROM FUNCIONARIOS
+WHERE CARGO LIKE 'Assistant%';
+
+
+SELECT NOME, CARGO,
+	CASE
+
+		WHEN (CARGO = 'Assistant%') = TRUE THEN 1
+		ELSE 0 
+
+	END AS "É ASSISTENTE?"
+FROM FUNCIONARIOS
+WHERE CARGO LIKE 'Assistant%';
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
